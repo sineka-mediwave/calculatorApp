@@ -1,4 +1,34 @@
 // program for a simple calculator
 let result = document.querySelector("#result");
-let operand1 = document.querySelectorAll(".value");
+let operand = document.querySelectorAll(".value");
 let operator = document.querySelectorAll(".operator");
+
+for (let i = 0; i < operand.length; i++) {
+  const val = operand[i];
+  val.addEventListener("click", function () {
+    result.textContent += val.textContent;
+  });
+}
+
+for (let i = 0; i < operator.length; i++) {
+  const op = operator[i];
+  op.addEventListener("click", function () {
+    result.textContent += op.value;
+  });
+}
+
+function displayResult() {
+  document.querySelector("#equal").addEventListener("click", function () {
+    const evalu = document.createElement("p");
+    result.appendChild(evalu);
+    evalu.textContent = eval(result.textContent);
+  });
+}
+
+function clear() {
+  document.querySelector("#clear").addEventListener("click", function () {
+    result.textContent = "";
+  });
+}
+clear();
+displayResult();

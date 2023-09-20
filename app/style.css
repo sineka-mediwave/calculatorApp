@@ -36,8 +36,8 @@ button {
 }
 
 #cal-display p {
-    padding: 5px;
-    font-size: 36px;
+    padding-right: 5px;
+    font-size: 32px;
     text-align: right;
 }
 
@@ -51,11 +51,17 @@ button {
     gap: 2px;
 }
 
-#clear {
+.long-key {
     grid-column: 1/4;
-    background-color: #494443;
 }
 
 .operator {
+    background-color: #f2a23c;
+}
+
+#clear {
+    background-color: #494443;
+}
+#equal {
     background-color: #f2a23c;
 }
