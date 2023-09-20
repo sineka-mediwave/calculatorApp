@@ -19,12 +19,27 @@ for (let i = 0; i < operator.length; i++) {
 
 function displayResult() {
   document.querySelector("#equal").addEventListener("click", function () {
-    const evalu = document.createElement("p");
-    result.appendChild(evalu);
-    evalu.textContent = eval(result.textContent);
+    resultShow();
   });
 }
 
+function resultShow() {
+  const evalu = document.createElement("p");
+  result.appendChild(evalu);
+  if (result.textContent.includes("+")) {
+    let res = result.textContent.split("+");
+    evalu.textContent = parseInt(res[0]) + parseInt(res[1]);
+  } else if (result.textContent.includes("-")) {
+    let res = result.textContent.split("-");
+    evalu.textContent = parseInt(res[0]) - parseInt(res[1]);
+  } else if (result.textContent.includes("*")) {
+    let res = result.textContent.split("*");
+    evalu.textContent = parseInt(res[0]) * parseInt(res[1]);
+  } else if (result.textContent.includes("/")) {
+    let res = result.textContent.split("/");
+    evalu.textContent = parseInt(res[0]) / parseInt(res[1]);
+  }
+}
 function clear() {
   document.querySelector("#clear").addEventListener("click", function () {
     result.textContent = "";
